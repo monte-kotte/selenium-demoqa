@@ -1,6 +1,6 @@
 package demoqa.test;
 
-import org.testng.Assert;
+import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
 public class LaunchTest extends TestBase {
@@ -11,7 +11,7 @@ public class LaunchTest extends TestBase {
     @Test
     void testLaunch() {
         webDriver.get(BASE_URL);
-        Assert.assertEquals(webDriver.getTitle(), MAIN_PAGE_TITLE);
+        Assertions.assertThat(webDriver.getTitle()).isEqualTo(MAIN_PAGE_TITLE);
     }
 
 }

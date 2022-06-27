@@ -60,12 +60,16 @@ public class TextBoxPage extends BasePage {
         return outputUserEmail.getText();
     }
 
-    public String getOutputCurrentAddress(){
+    public String getOutputCurrentAddress() {
         return outputCurrentAddress.getText();
     }
 
-    public String getOutputPermanentAddress(){
+    public String getOutputPermanentAddress() {
         return outputPermanentAddress.getText();
+    }
+
+    public String getUserEmailInputHtmlClass() {
+        return emailInput.getAttribute("class");
     }
 
 }
