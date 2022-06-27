@@ -6,33 +6,15 @@
 
   <groupId>karpuk.demoqa</groupId>
   <artifactId>selenium-demoqa</artifactId>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>no-spring-testng</module>
+  </modules>
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
-    <selenium.version>4.3.0</selenium.version>
-    <webdrivermanager.version>5.2.0</webdrivermanager.version>
-    <testng.version>7.6.0</testng.version>
   </properties>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>${selenium.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>${webdrivermanager.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>${testng.version}</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
 
 </project>
