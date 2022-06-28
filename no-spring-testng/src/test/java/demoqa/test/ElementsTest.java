@@ -13,7 +13,7 @@ public class ElementsTest extends TestBase {
     public static final String ELEMENTS_URL = "https://demoqa.com/elements";
 
     @Test
-    void testTextBox() throws Exception {
+    void textBoxSuccessTest() throws Exception {
         User testUser = fromFile(TEST_USER, User.class);
 
         webDriver.get(ELEMENTS_URL);

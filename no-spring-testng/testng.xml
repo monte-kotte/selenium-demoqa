@@ -1,0 +1,15 @@
+<suite name="MainTestSuite">
+    <listeners>
+        <listener class-name="demoqa.core.utils.TestListener"/>
+    </listeners>
+    <test name="LaunchTest">
+        <classes>
+            <class name="demoqa.test.LaunchTest"/>
+        </classes>
+    </test>
+    <test name="ElementsTest">
+        <classes>
+            <class name="demoqa.test.ElementsTest"/>
+        </classes>
+    </test>
+</suite>

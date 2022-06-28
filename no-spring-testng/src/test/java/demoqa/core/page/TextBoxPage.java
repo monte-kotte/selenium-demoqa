@@ -50,6 +50,7 @@ public class TextBoxPage extends BasePage {
     public void submitForm() {
         scrollToView(submitBtn);
         submitBtn.click();
+        logger.info("Form is submitted");
     }
 
     public String getOutputName() {

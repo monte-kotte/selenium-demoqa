@@ -15,6 +15,7 @@ public class ElementsPage extends BasePage {
 
     public void openTextBoxPage() {
         textBoxPageBtn.click();
+        logger.info("Text box page is opened");
     }
 
 }

@@ -14,6 +14,7 @@ public class ElementsService extends BaseService {
         textBoxPage.enterEmail(user.getEmail());
         textBoxPage.enterCurrentAddress(user.getCurrentAddress());
         textBoxPage.enterPermanentAddress(user.getPermanentAddress());
+        logger.info("Form is filled with the next data: " + user);
     }
 
     public User getTextBoxOutputUser(){
