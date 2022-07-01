@@ -23,5 +23,7 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
-      - name: Test with Maven
+      - name: Test with Maven (no-spring module)
         run: mvn -B test --file pom.xml -pl no-spring-testng -Denv=test-chrome
+      - name: Test with Maven (spring module)
+        run: mvn -B test --file pom.xml -pl spring-testng -Ddriver=chrome -Denv=prod
