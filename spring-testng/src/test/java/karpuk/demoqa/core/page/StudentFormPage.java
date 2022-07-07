@@ -1,19 +1,15 @@
 package karpuk.demoqa.core.page;
 
-import karpuk.demoqa.core.model.Gender;
+import karpuk.demoqa.core.model.enums.Gender;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
-import java.time.LocalDate;
-import java.time.format.TextStyle;
 import java.util.List;
-import java.util.Locale;
 
 import static karpuk.demoqa.core.utils.Utils.scrollToView;
 import static karpuk.demoqa.core.utils.Utils.waitAndClickJS;
 
-public class StudentFormPage extends PageBase {
+public class StudentFormPage extends BasePage {
 
     @FindBy(xpath = "//div[contains(@class, 'show')]//li[@id='item-0']")
     private WebElement openPracticeFormBtn;
@@ -27,12 +23,6 @@ public class StudentFormPage extends PageBase {
     private WebElement mobileInput;
     @FindBy(id = "dateOfBirthInput")
     private WebElement dobInput;
-    @FindBy(xpath = "//select[@class='react-datepicker__month-select']")
-    private WebElement monthOptions;
-    @FindBy(xpath = "//select[@class='react-datepicker__year-select']")
-    private WebElement yearOptions;
-    @FindBy(xpath = "//div[@class='react-datepicker__month']//div[contains(@class, 'day') and not(contains(@class,'outside-month'))]")
-    private List<WebElement> days;
     @FindBy(id = "submit")
     private WebElement submitBtn;
 
@@ -58,23 +48,13 @@ public class StudentFormPage extends PageBase {
         mobileInput.sendKeys(number);
     }
 
-    public void enterDateOfBirth(LocalDate date) {
+    public void openDateOfBirthCalendar() {
         scrollToView(dobInput);
         dobInput.click();
-        select(monthOptions, date.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH));
-        select(yearOptions, String.valueOf(date.getYear()));
-        days.stream()
-                .filter(e -> Integer.parseInt(e.getText()) == date.getDayOfMonth())
-                .findFirst()
-                .get().click();
     }
 
     public void submitForm() {
         waitAndClickJS(submitBtn);
-    }
-
-    private void select(WebElement select, String text) {
-        (new Select(select)).selectByVisibleText(text);
     }
 
 }

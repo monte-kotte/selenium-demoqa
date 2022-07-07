@@ -1,9 +1,10 @@
-package karpuk.demoqa.core.model;
+package karpuk.demoqa.core.model.enums;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum Gender {
+
     MALE(1),
     FEMALE(2),
     OTHER(3);
