@@ -1,0 +1,13 @@
+{
+  "firstName": "Mark",
+  "lastName": "Smith",
+  "email": "ms@gml.com",
+  "gender": "MALE",
+  "mobile": "1234567890",
+  "dateOfBirth": "1992-02-22",
+  "hobbies": [
+    "SPORTS",
+    "READING"
+  ],
+  "currentAddress": "123 main"
+}
