@@ -3,6 +3,8 @@ package karpuk.demoqa.test.context;
 import karpuk.demoqa.core.driver.WebDriverMngr;
 import karpuk.demoqa.core.page.AppHomePage;
 import karpuk.demoqa.core.page.StudentFormPage;
+import karpuk.demoqa.core.page.component.CalendarForm;
+import karpuk.demoqa.core.page.component.ResultTable;
 import karpuk.demoqa.test.step.BaseStep;
 import karpuk.demoqa.test.step.StudentFormStep;
 import org.assertj.core.api.SoftAssertions;
@@ -20,6 +22,7 @@ public class ConfigurationContext {
     public WebDriver webDriver() {
         return WebDriverMngr.getInstance();
     }
+
     @Bean
     @Scope("prototype")
     public SoftAssertions softAssertions() {
@@ -30,15 +33,27 @@ public class ConfigurationContext {
     public AppHomePage appHomePage() {
         return new AppHomePage();
     }
+
     @Bean
     public StudentFormPage studentFormPage() {
         return new StudentFormPage();
     }
 
     @Bean
+    public CalendarForm calendarForm() {
+        return new CalendarForm();
+    }
+
+    @Bean
+    public ResultTable resultTable() {
+        return new ResultTable();
+    }
+
+    @Bean
     public BaseStep baseStep() {
         return new BaseStep();
     }
+
     @Bean
     public StudentFormStep studentFormStep() {
         return new StudentFormStep();

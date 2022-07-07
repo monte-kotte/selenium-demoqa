@@ -14,13 +14,12 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
-    private String firstName; // required field to submit form
-    private String lastName; // required field to submit form
+public class ResultStudent {
+    private String fullName;
     private String email;
-    private Gender gender; // required field to submit form
-    private String mobile; // required field to submit form
-    private LocalDate dateOfBirth; // required field to submit form
+    private Gender gender;
+    private String mobile;
+    private LocalDate dateOfBirth;
     private List<Hobby> hobbies;
     private String currentAddress;
 }

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 
-public class PageBase {
+public class BasePage {
 
     @Autowired
     protected WebDriver driver;
