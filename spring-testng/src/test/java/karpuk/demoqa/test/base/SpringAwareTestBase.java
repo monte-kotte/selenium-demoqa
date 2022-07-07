@@ -1,9 +1,12 @@
 package karpuk.demoqa.test.base;
 
 import karpuk.demoqa.core.driver.WebDriverMngr;
+import karpuk.demoqa.core.page.AppHomePage;
+import karpuk.demoqa.core.page.StudentFormPage;
 import karpuk.demoqa.test.context.ConfigurationContext;
 import karpuk.demoqa.test.context.ConfigurationValues;
 import karpuk.demoqa.test.step.BaseStep;
+import karpuk.demoqa.test.step.StudentFormStep;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +27,14 @@ public class SpringAwareTestBase extends AbstractTestNGSpringContextTests {
     protected ConfigurationValues values;
 
     @Autowired
-    protected BaseStep baseService;
+    protected AppHomePage appHomePage;
+    @Autowired
+    protected StudentFormPage studentFormPage;
+
+    @Autowired
+    protected BaseStep baseStep;
+    @Autowired
+    protected StudentFormStep studentFormStep;
 
     @AfterMethod
     public void cleanUp() {

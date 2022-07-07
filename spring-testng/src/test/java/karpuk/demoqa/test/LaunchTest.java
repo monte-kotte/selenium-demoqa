@@ -9,7 +9,7 @@ public class LaunchTest extends SpringAwareTestBase {
 
     @Test()
     void appLaunchSuccessTest() {
-        baseService.openPage(values.getBaseUrl());
+        baseStep.openPage(values.getBaseUrl());
         softAssert.assertThat(webDriver.getTitle()).isEqualTo(MAIN_PAGE_TITLE);
         softAssert.assertAll();
     }
