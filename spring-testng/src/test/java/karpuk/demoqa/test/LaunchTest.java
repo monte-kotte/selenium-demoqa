@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class LaunchTest extends SpringAwareTestBase {
 
-    public static final String MAIN_PAGE_TITLE = "ToolsQA";
+    public static final String MAIN_PAGE_TITLE = "DEMOQA";
 
     @Test()
     void appLaunchSuccessTest() {

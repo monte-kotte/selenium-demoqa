@@ -1,13 +1,11 @@
 package karpuk.demoqa.core.page;
 
 import karpuk.demoqa.core.model.enums.Gender;
+import karpuk.demoqa.core.utils.Utils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-
-import static karpuk.demoqa.core.utils.Utils.scrollToView;
-import static karpuk.demoqa.core.utils.Utils.waitAndClickJS;
 
 public class StudentFormPage extends BasePage {
 
@@ -41,7 +39,7 @@ public class StudentFormPage extends BasePage {
     public void selectGender(Gender gender) {
         genderBtns.stream()
                 .filter(e -> e.getAttribute("for").equals("gender-radio-" + gender.getPosition()))
-                .forEach(WebElement::click);
+                .forEach(e -> Utils.waitAndClickJS(e));
     }
 
     public void enterMobileNumber(String number) {
@@ -49,12 +47,12 @@ public class StudentFormPage extends BasePage {
     }
 
     public void openDateOfBirthCalendar() {
-        scrollToView(dobInput);
+        Utils.scrollToView(dobInput);
         dobInput.click();
     }
 
     public void submitForm() {
-        waitAndClickJS(submitBtn);
+        Utils.waitAndClickJS(submitBtn);
     }
 
 }
