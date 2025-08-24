@@ -18,4 +18,31 @@
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
+  <profiles>
+    <profile>
+      <id>chrome-prod</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <driver>chrome</driver>
+        <env>prod</env>
+      </properties>
+    </profile>
+  </profiles>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <systemPropertyVariables>
+            <driver>${driver}</driver>
+            <env>${env}</env>
+          </systemPropertyVariables>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
