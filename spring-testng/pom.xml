@@ -12,16 +12,17 @@
   <artifactId>spring-testng</artifactId>
 
   <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <spring.version>5.3.21</spring.version>
-    <selenium.version>4.19.1</selenium.version>
-    <webdrivermanager.version>5.7.0</webdrivermanager.version>
-    <testng.version>7.6.0</testng.version>
-    <assertj.version>3.23.1</assertj.version>
-    <javax-annotation.version>1.3.2</javax-annotation.version>
-    <lombok.version>1.18.24</lombok.version>
-    <jackson.version>2.13.3</jackson.version>
+    <java.version>21</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <spring.version>6.2.10</spring.version>
+    <selenium.version>4.35.0</selenium.version>
+    <webdrivermanager.version>6.2.0</webdrivermanager.version>
+    <testng.version>7.11.0</testng.version>
+    <assertj.version>3.27.4</assertj.version>
+    <jakarta-annotation.version>3.0.0</jakarta-annotation.version>
+    <lombok.version>1.18.38</lombok.version>
+    <jackson.version>2.19.2</jackson.version>
   </properties>
 
   <dependencies>
@@ -62,9 +63,9 @@
       <version>${assertj.version}</version>
     </dependency>
     <dependency>
-      <groupId>javax.annotation</groupId>
-      <artifactId>javax.annotation-api</artifactId>
-      <version>${javax-annotation.version}</version>
+      <groupId>jakarta.annotation</groupId>
+      <artifactId>jakarta.annotation-api</artifactId>
+      <version>${jakarta-annotation.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
