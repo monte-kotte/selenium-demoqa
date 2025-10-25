@@ -15,4 +15,8 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
+    public void navigateTo(String url) {
+        logger.info("Navigating to URL: {}", url);
+        driver.get(url);
+    }
 }

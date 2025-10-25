@@ -10,7 +10,7 @@ public class LaunchTest extends TestBase {
 
     @Test
     void launchAppTest() {
-        webDriver.get(BASE_URL);
+        elementsPage.navigateTo(BASE_URL);
         Assertions.assertThat(webDriver.getTitle()).isEqualTo(MAIN_PAGE_TITLE);
     }
 

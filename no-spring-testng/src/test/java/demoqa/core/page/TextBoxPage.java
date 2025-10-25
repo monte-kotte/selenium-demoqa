@@ -54,19 +54,27 @@ public class TextBoxPage extends BasePage {
     }
 
     public String getOutputName() {
-        return outputUserName.getText();
+        return outputUserName.getText()
+                .replace("Name:", "")
+                .trim();
     }
 
     public String getOutputEmail() {
-        return outputUserEmail.getText();
+        return outputUserEmail.getText()
+                .replace("Email:", "")
+                .trim();
     }
 
     public String getOutputCurrentAddress() {
-        return outputCurrentAddress.getText();
+        return outputCurrentAddress.getText()
+                .replace("Current Address :", "")
+                .trim();
     }
 
     public String getOutputPermanentAddress() {
-        return outputPermanentAddress.getText();
+        return outputPermanentAddress.getText()
+                .replace("Permananet Address :", "")
+                .trim();
     }
 
     public String getUserEmailInputHtmlClass() {

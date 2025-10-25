@@ -36,5 +36,4 @@ public class TestBase {
     private void initServices() {
         elementsService = new ElementsService(webDriver);
     }
-
 }
