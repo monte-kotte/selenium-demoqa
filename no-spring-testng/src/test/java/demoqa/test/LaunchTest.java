@@ -3,10 +3,9 @@ package demoqa.test;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
-public class LaunchTest extends TestBase {
+import static demoqa.test.data.Constants.*;
 
-    public static final String BASE_URL = "https://demoqa.com/";
-    public static final String MAIN_PAGE_TITLE = "DEMOQA";
+public class LaunchTest extends TestBase {
 
     @Test
     void launchAppTest() {
