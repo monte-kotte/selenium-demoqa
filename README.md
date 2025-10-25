@@ -14,10 +14,11 @@ mvn clean install
 ## Run tests separately (chrome or firefox profile available)
 
 ```bash
-# No-spring tests
+# Run no-spring tests and generate allure report
 mvn clean test -pl no-spring-testng -Ddriver=chrome
+mvn allure:serve -pl no-spring-testng
 
-# Spring tests
+# Run spring-based tests
 mvn clean test -pl spring-testng -Ddriver=chrome -Denv=prod
 ```
 

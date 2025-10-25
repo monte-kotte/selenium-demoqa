@@ -1,6 +1,7 @@
-<suite name="MainTestSuite">
+<suite name="MainTestSuite" parallel="tests" thread-count="3">
     <listeners>
         <listener class-name="demoqa.core.utils.TestListener"/>
+        <listener class-name="demoqa.core.utils.AllureTestListener"/>
     </listeners>
     <test name="LaunchTest">
         <classes>
