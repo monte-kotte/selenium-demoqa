@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class DriverManager {
 
-    private static WebDriver driver;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     public static Logger logger = LogManager.getLogger();
 
     public enum BrowserType {
@@ -20,41 +20,58 @@ public class DriverManager {
     }
 
     public static WebDriver getInstance() {
-        if (driver == null) {
-            driver = createDriver();
+        if (driver.get() == null) {
+            driver.set(createDriver());
         }
-        return driver;
+        return driver.get();
     }
 
     private static WebDriver createDriver() {
-        WebDriver driver = null;
+        WebDriver webDriver = null;
         switch (ConfigWebDriver.getBrowserType()) {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                logger.info("Chrome web driver created");
+                webDriver = new ChromeDriver();
+                logger.info("Chrome web driver created for thread: {}", Thread.currentThread().getId());
                 break;
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
-                logger.info("Firefox web driver created");
+                webDriver = new FirefoxDriver();
+                logger.info("Firefox web driver created for thread: {}", Thread.currentThread().getId());
                 break;
             default:
                 logger.error("Provided browser type is not supported");
                 throw new UnsupportedOperationException("Provided browser type '" + ConfigWebDriver.getBrowserType() + "' is not supported");
         }
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigWebDriver.getPageLoadTimeout()));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigWebDriver.getImplicitlyWait()));
+        configureWebDriver(webDriver);
+        return webDriver;
+    }
+
+    private static void configureWebDriver(WebDriver webDriver) {
+        setPageLoadTimeout(webDriver);
+        setImplicitWait(webDriver);
+        maximizeWindow(webDriver);
+    }
+
+    private static void setPageLoadTimeout(WebDriver webDriver) {
+        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigWebDriver.getPageLoadTimeout()));
+    }
+
+    private static void setImplicitWait(WebDriver webDriver) {
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigWebDriver.getImplicitlyWait()));
+    }
+
+    private static void maximizeWindow(WebDriver webDriver) {
         if (ConfigWebDriver.isWindowMaximize()) {
-            driver.manage().window().maximize();
+            webDriver.manage().window().maximize();
         }
-        return driver;
     }
 
     public static void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
+        if (driver.get() != null) {
+            driver.get().quit();
+            logger.info("Web driver closed for thread: {}", Thread.currentThread().getId());
+            driver.remove();
         }
     }
 
