@@ -16,23 +16,22 @@ public class ElementsTest extends TestBase {
     void textBoxSuccessTest() throws Exception {
         User testUser = fromFile(TEST_USER, User.class);
 
-        webDriver.get(ELEMENTS_URL);
+        elementsPage.navigateTo(ELEMENTS_URL);
         elementsPage.openTextBoxPage();
         elementsService.fillTextBoxForm(testUser);
         textBoxPage.submitForm();
         User actualUser = elementsService.getTextBoxOutputUser();
 
-        Assertions.assertThat(actualUser.getFullName()).contains(testUser.getFullName());
-        Assertions.assertThat(actualUser.getEmail()).contains(testUser.getEmail());
-        Assertions.assertThat(actualUser.getCurrentAddress()).contains(testUser.getCurrentAddress());
-        Assertions.assertThat(actualUser.getPermanentAddress()).contains(testUser.getPermanentAddress());
+        Assertions.assertThat(actualUser)
+                .usingRecursiveComparison()
+                .isEqualTo(testUser);
     }
 
     @Test
     void incorrectEmailFormatTest() throws Exception {
         User testUserWithIncorrectEmail = fromFile(TEST_USER_INCORRECT_EMAIL, User.class);
 
-        webDriver.get(ELEMENTS_URL);
+        elementsPage.navigateTo(ELEMENTS_URL);
         elementsPage.openTextBoxPage();
         elementsService.fillTextBoxForm(testUserWithIncorrectEmail);
         textBoxPage.submitForm();
