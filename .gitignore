@@ -8,3 +8,8 @@ test-output/
 lib/
 *.iml
 *.log
+
+# Allure
+.allure/
+allure-results/
+allure-report/
